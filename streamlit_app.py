@@ -20,11 +20,14 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 # Display the table on the page.
 streamlit.dataframe(fruits_selected)
 
+########################3333
 #Nueva seccion para mostrar el response de la api fruityvice
 streamlit.header("Fruityvice Fruit Advice!")
+fruit_choice = streamlit.text_input('Sobre que fruta queres info?','kiwi')
+streamlit.write('the user entered: ',fruit_choice)
 
 import requests
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+"kiwi")
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+ fruit_choice)
 #streamlit.text(fruityvice_response.json()) #el json solo escribe los datos en pantalla
 
 # normaliza el json y le quita sus formatos especiales
