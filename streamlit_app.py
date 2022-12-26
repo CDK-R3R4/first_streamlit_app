@@ -24,11 +24,11 @@ streamlit.dataframe(fruits_selected)
 streamlit.header("Fruityvice Fruit Advice!")
 
 import requests
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-streamlit.text(fruityvice_response.json()) #el json solo escribe los datos en pantalla
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+"kiwi")
+#streamlit.text(fruityvice_response.json()) #el json solo escribe los datos en pantalla
 
-# write your own comment -what does the next line do? 
+# normaliza el json y le quita sus formatos especiales
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json()) 
-# write your own comment - what does this do?
-#streamlit.dataframe(fruityvice_normalized)
+# coloca los datos en tabla
+streamlit.dataframe(fruityvice_normalized)
 
